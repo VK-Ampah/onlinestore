@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { Routes, Route, BrowserRouter} from 'react-router-dom';
 import { Checkout, Home, ProductDetails, ProductList, ShoppingCart } from './components/ui';
 import { Footer, Header, NavBar } from './components/shared';
+import ProductCategory from './components/ui/ProductCategory';
 
 
 
@@ -27,17 +28,18 @@ const App =  () => {
   }, [])
 
   return (
-    <div className="App">
+    <div className="flex h-screen">
       {/* wrap our application with the Browser Router to enforce routing */}
         <BrowserRouter>
         <div>
           <div><Header/></div>
           <div><NavBar/> </div>
-          <div className="flex h-screen">
+          <div className="flex">
             {/* Routes for main pages */}
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/home" element={<Home />} />
+              <Route path="/" element={<ProductCategory />} />
+              <Route path="/Home" element={<ProductCategory />} />
+              <Route path="/ProductCategory" element={<ProductCategory />} />
               <Route path="/ProductDetails" element={<ProductDetails />} />
               <Route path="/ProductList" element={<ProductList />} />
               <Route path="/ShoppingCart" element={<ShoppingCart />} />
