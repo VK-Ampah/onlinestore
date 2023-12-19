@@ -26,14 +26,17 @@ const ProductDetails = () => {
     
       {productList.map((item,index) => (
         <div key={index}>
-            <img src={item.image} alt={item.category} width="200px"></img>
-            <p>{item.title}</p>
-            <p>{item.description}</p>
-            <p>{item.category}</p>
-            <p>{item.price}</p>
-            <div>
-            <p>{item.rating.rate}</p>
-            <p>{item.rating.count}</p>
+            <div className= "rounded-full bg-gradient-to-r from-purple-500 to-pink-500">
+              <img src={item.image} alt={item.category} width="200px" height="200px"></img>
+            </div>
+            <p className="bg-cyan-900"> title: {item.title}</p>
+            <p> description: {item.description}</p>
+            <p>category : {item.category}</p>
+            <p className=""> price: {item.price}</p>
+
+            <div className="flex flex-row bg-cyan-500 justify-center rounded-full">
+              <p className="mr-4"> rating: {item.rating.rate}</p>
+              <p className="mr-4 bg_sprint"> rating count: {item.rating.count}</p>
             </div>
         </div>
         
