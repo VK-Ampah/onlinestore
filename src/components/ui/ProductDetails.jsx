@@ -38,6 +38,8 @@ const ProductDetails = () => {
               <p className="mr-4"> rating: {item.rating.rate}</p>
               <p className="mr-4 bg_sprint"> rating count: {item.rating.count}</p>
             </div>
+
+            
         </div>
         
       

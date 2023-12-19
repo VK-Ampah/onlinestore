@@ -28,13 +28,13 @@ const App =  () => {
   }, [])
 
   return (
-    <div className="flex h-screen">
+    <div className="h-screen w-full m-2">
       {/* wrap our application with the Browser Router to enforce routing */}
         <BrowserRouter>
         <div>
           <div><Header/></div>
           <div><NavBar/> </div>
-          <div className="flex">
+          <div className="flex w-full">
             {/* Routes for main pages */}
             <Routes>
               <Route path="/" element={<ProductCategory />} />

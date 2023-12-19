@@ -9,13 +9,13 @@ export const unsplashApi = createApi({ accessKey: apiKey});
 
 //Get images from unspalsh
 
-export const imagesList = async () => {
+export const imagesList = async (queryName) => {
    try{
       const response =  await unsplashApi.search.getPhotos({
-      query: 'cat',
+      query: queryName,
       page: 1,
       perPage: 10,
-      color: 'green',
+      // color: 'green',
       orientation: 'portrait',
       });
 
@@ -24,8 +24,8 @@ export const imagesList = async () => {
          console.log(response.type)
       }
       else if(response.type==='success') {
-      console.log(response.response)         
-      return response
+      console.log(response.response.results)         
+      return response.response.results
       }
 
    }

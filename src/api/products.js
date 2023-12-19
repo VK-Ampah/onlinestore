@@ -13,9 +13,20 @@ export const products = async () => {
     }
 
     // Get product category
-export const productsCategory = async (prodcategory) => {
+export const productsCategory = async (prodcategory="") => {
     try{
-        const url = `https://fakestoreapi.com/products/category/${prodcategory}`
+        // const url = `https://fakestoreapi.com/products/category/${prodcategory}`
+
+        let url;
+
+        if (prodcategory) {
+            // Use the category-specific endpoint
+            url = `https://fakestoreapi.com/products/category/${prodcategory}`;
+        } else {
+            // Use the general categories endpoint
+            url = 'https://fakestoreapi.com/products/categories';
+        }
+
         const response = await fetch(url)
         const data = await response.json()
         console.log(response)
