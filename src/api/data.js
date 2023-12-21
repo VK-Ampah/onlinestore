@@ -66,3 +66,24 @@ export const colorsData = [
   { id: 4, name: 'Yellow', code: '#FFFF00' },
   { id: 5, name: 'Purple', code: '#800080' }
 ];
+
+export const cartData = [
+  {
+    image:"",
+    name: 'butterscotch ice-cream',
+    category: 'Milk product',
+    price: '$250',
+  },
+  {
+    image:"",
+    name: 'Supreme fresh tomato',
+    category: 'Vegetable Item',
+    price: '$450',
+  },
+  {
+    image:"",
+    name: 'Red color candy',
+    category: 'Food Item',
+    price: '$190',
+  },
+];

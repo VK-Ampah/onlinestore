@@ -115,7 +115,7 @@ const ProductDetails = () => {
                 </div>
                 <div className="mb-4 ">
                     <h1 className='font-bold mb-2'>Reviews</h1>
-                    <div className="flex flex-row">
+                    <div className="flex flex-row flex-wrap lg:flex-nowrap">
                     {reviewsArray.map((item,index)=>(
                         <div className="flex flex-row gap-7 mr-2"> 
                             <div>
@@ -191,7 +191,7 @@ const ProductDetails = () => {
                         </div>
                         <div className="flex flex-row justify-center items-center">
                             {shippingOptions.map((item,index)=>(
-                                <div className="m-2 border-2 p-2">
+                                <div key={index} className="m-2 border-2 p-2">
                                     <div className="flex justify-center items-start"> 
                                         <img className="flex w-12 h-12 rounded-lg bg-white" src={item.icon} alt={""}/>
                                     </div>
