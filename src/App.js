@@ -37,8 +37,8 @@ const App =  () => {
           <div className="flex w-full">
             {/* Routes for main pages */}
             <Routes>
-              <Route path="/" element={<ProductCategory />} />
-              <Route path="/Home" element={<ProductCategory />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/Home" element={<Home />} />
               <Route path="/ProductCategory" element={<ProductCategory />} />
               <Route path="/ProductDetails" element={<ProductDetails />} />
               <Route path="/ProductList" element={<ProductList />} />
