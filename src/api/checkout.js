@@ -1,5 +1,6 @@
 // Checkout Page after acquiring products
 // Will need to get transition to it.
+import 'styles.css'
 fetch('https://fakestoreapi.com/checkout')
             .then(res=>res.json())
             .then(json=>console.log(json))
@@ -7,7 +8,6 @@ fetch('https://fakestoreapi.com/checkout')
 function Checkout()
 {
                 
-    const [loading, setLoading] = useState(true);
     const [cart, setCart] = useState([]);
     var totalCartPrice = 0;
             
@@ -21,7 +21,7 @@ function Checkout()
         province: '',
         zipcode: '',
     });
-    const [error, setError] = useState([]);
+
             
             
     const handleInput = (e) => {
