@@ -4,7 +4,6 @@ fetch('https://fakestoreapi.com/checkout')
             .then(res=>res.json())
             .then(json=>console.log(json))
 
-
 function Checkout()
 {
                 
@@ -19,35 +18,11 @@ function Checkout()
         email: '',
         address: '',
         city: '',
-        state: '',
+        province: '',
         zipcode: '',
     });
     const [error, setError] = useState([]);
             
-    useEffect(() => {
-            
-        let isMounted = true;
-            
-        fetch.get(`/api/cart`).then(res=>{
-        if(isMounted)
-        {
-            if(res.data.status === 200)
-            {
-                setCart(res.data.cart);
-                setLoading(false);
-            }
-            else if(res.data.status === 401)
-            {
-                history.push('/');
-                swal("Warning",res.data.message,"error");
-            }
-        }
-    }); 
-             
-    return () => {
-        isMounted = false
-        };
-    }, [history]);
             
     const handleInput = (e) => {
         e.persist();
@@ -61,34 +36,11 @@ function Checkout()
         email: checkoutInput.email,
         address: checkoutInput.address,
         city: checkoutInput.city,
-        state: checkoutInput.state,
+        province: checkoutInput.province,
         zipcode: checkoutInput.zipcode,
         payment_mode: 'Paid by PayPal',
         payment_id: '',
     }
-            
-// Paypal Code
-    const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
-    const createOrder = (data, actions) =>{
-        return actions.order.create({
-            purchase_units: [
-            {
-                 amount: {
-                    value: totalCartPrice,
-                    },
-                },
-            ],
-        });
-    };
-    const onApprove = (data, actions) => {
-        // return actions.order.capture();
-        return actions.order.capture().then(function(details) {
-            console.log(details);
-            orderinfo_data.payment_id = details.id;
-
-            });
-    };
-// End-Paypal Code
             
     const submitOrder = (e, payment_mode) => {
         e.preventDefault();
@@ -105,11 +57,6 @@ function Checkout()
             payment_mode: payment_mode,
             payment_id: '',
         }
-            
-    switch (payment_mode) 
-    {
-
-    }
             
     var checkout_HTML = '';
     if(cart.length > 0)
@@ -170,7 +117,7 @@ function Checkout()
                             <div className="col-md-4">
                                 <div className="form-group mb-3">
                                     <label>Province</label>
-                                    <input type="text" name="state" onChange={handleInput} value={checkoutInput.state} className="form-control" />
+                                    <input type="text" name="province" onChange={handleInput} value={checkoutInput.province} className="form-control" />
                                     <small className="text-danger">{error.province}</small>
                                 </div>
                             </div>
@@ -184,8 +131,6 @@ function Checkout()
                             <div className="col-md-12">
                                 <div className="form-group text-end">
                                     <button type="button" className="btn btn-primary mx-1" onClick={ (e) => submitOrder(e, 'cod') }>Place Order</button>
-                                    <button type="button" className="btn btn-primary mx-1" onClick={ (e) => submitOrder(e, 'razorpay') }>Pay by Razorpay</button>
-                                    <button type="button" className="btn btn-warning mx-1" onClick={ (e) => submitOrder(e, 'payonline') }>Pay Online</button>
             
                                 </div>
                             </div>
@@ -249,10 +194,6 @@ function Checkout()
                     </div>
                     <div class="modal-body">
                             <hr/>
-                            <PayPalButton
-                                reateOrder={(data, actions) => createOrder(data, actions)}
-                                onApprove={(data, actions) => onApprove(data, actions)}
-                            />
                         </div>
                         </div>
                     </div>
