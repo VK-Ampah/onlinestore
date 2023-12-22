@@ -2,38 +2,26 @@ import { useEffect, useState } from "react";
 import { products, productsCategory } from "../../api/products";
 import { colorsData, paymentOptions, reviewsArray, shippingOptions, sizesData } from "../../api/data";
 import { imagesList } from "../../api/unspalsh";
+import { Button } from "../shared";
+import { useStateContext } from "../../contexts/ContextProvider";
 
 
 
 const ProductDetails = () => {
   const catList = ["electronics","jewelery","men's clothing","women's clothing"];
 
+const { addProductToCart } = useStateContext();
+const {cartItems, setCartItems} = useStateContext();
+
+console.log(cartItems)
+
+
 
   const [UnspalshImages, setUnsplashImages] = useState([]);
 
   const [singleProductDetails, setsingleProductDetails] = useState([])
-//   create a function that returns a single product in a category 
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const data = await productsCategory(catList[0]);// make this a prop prodCategory
-        
 
-//         // setsingleProductDetails(data)
-//         data.forEach((item)=>{
-//             if(parseInt(item.id) === 9) {setsingleProductDetails(item)
-//              }
-//             else{console.log(catList[0])}})
-//       } 
-//       catch (error) {
-//         console.log(error);
-//       }
-//     };
-//     fetchData();
-//   }, []);
-//  console.log(singleProductDetails)
-
-
+    // Fetch products once from API
  useEffect(() => {
   const fetchData = async () => {
     try {
@@ -130,8 +118,20 @@ const ProductDetails = () => {
                     ))}
                     </div>
                 </div>
-                <div className="mb-10">
-                    <button onClick={()=>{}} className="bg-white text-black rounded-md w-40">ADD TO CART</button>
+                <div className="mb-10 ">
+                    {/* <button onClick={()=>setCartItems(singleProductDetails) } className="bg-white text-black rounded-md w-40">ADD TO CART</button> */}
+                    <Button
+                        bgColor="white"
+                        color="black"
+                        size="10"
+                        borderRadius =""
+                        //   onclick of the button, a handleclick call back function is called, this function sets the value of cart to TRUE (isClicked.cart=true) and if this value is true the cart component will be rendered below
+                        // onClick THIS function should take the data and append it to the CART DATA ARRAY
+                        customFunc={() =>addProductToCart(singleProductDetails)}
+                        // customFunc={() => {}}
+                        icon={`ADD TO CART`}
+                        className="bg-white text-black rounded-md w-40"
+                        />
                 </div>
             </div>
             <div className="grid grid-rows-5 grid-flow-col ml-6">

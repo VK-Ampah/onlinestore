@@ -104,7 +104,7 @@ const uniqueCategories = Array.from(new Set(productList.map(item => item.categor
                                     </figcaption>
                                 </figure>
 
-                                <div className="absolute flex top-2 right-2 rounded-full z-50 w-40 h-40 text-center justify-center bg-red-600 text-white">
+                                <div className="absolute flex top-2 right-2 rounded-full z-30 w-40 h-40 text-center justify-center bg-red-600 text-white">
                                     <div className="flex flex-col items-center  justify-center text-center p-4 rounded-full">
                                         <strong className="text-4xl font-semibold">70% </strong>
                                         <p className="text-xl font-semibold">OFF</p>
