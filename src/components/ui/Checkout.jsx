@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '/api/components/ui/styles.css'
+
 function Checkout()
 {
                 

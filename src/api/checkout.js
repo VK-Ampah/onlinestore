@@ -1,6 +1,5 @@
 // Checkout Page after acquiring products
 // Will need to get transition to it.
-import '/api/components/ui/styles.css'
 fetch('https://fakestoreapi.com/checkout')
             .then(res=>res.json())
             .then(json=>console.log(json))
