@@ -1,4 +1,4 @@
-const Checkout = () => {
+const Checkoutbackup = () => {
     return (
       <div>
         This is Checkout test
@@ -6,5 +6,5 @@ const Checkout = () => {
     )
   }
   
-  export default Checkout
+  export default Checkoutbackup
   
