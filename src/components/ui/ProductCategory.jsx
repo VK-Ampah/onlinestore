@@ -7,6 +7,7 @@ import { TopDiscount } from "../shared";
 
 
 
+
 const ProductCategory = ({prodCategory}) => {
 
   const [productCategory, setProductCategory] = useState([]);

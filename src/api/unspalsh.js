@@ -7,6 +7,7 @@ export const unsplashApi = createApi({ accessKey: apiKey});
 // non-feed example
 
 
+
 //Get images from unspalsh
 
 export const imagesList = async (queryName) => {
