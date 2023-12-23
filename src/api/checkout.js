@@ -6,7 +6,7 @@ fetch('https://fakestoreapi.com/checkout')
                 return (
                     <div className="page">
                     <checkoutform/>
-        
+                    Hey this is a test
                     </div>
                 );
         }
