@@ -17,8 +17,13 @@ const ShoppingCart = () => {
 //   const [setIsClicked ] = useStateContext();
    
 
-  const { isClicked, setIsClicked, handleClick, cartItems } = useStateContext();
+  const { isClicked, setIsClicked, cartItems,removeItemFromCart, clearAndCloseCartAndOpenCheckout } = useStateContext();
   console.log(cartItems)
+
+  const itemPrices = cartItems.map(item => item.price);
+  const subTotal = itemPrices.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+  const hst = subTotal * parseFloat(0.15);
+  const total = subTotal + hst;
 
   return (
     <div className="bg-half-transparent w-full fixed top-0 right-0 z-50">
@@ -42,12 +47,23 @@ const ShoppingCart = () => {
                 <div>
                   <p className="font-semibold flex-wrap ">{item.title}</p>
                   <p className="text-slate-500 text-sm font-semibold">{item.category}</p>
-                  <div className="flex gap-4 mt-2 items-center">
+                  <div className="flex gap-4 mt-2 items-center justify-between">
                     <p className="font-semibold text-lg">$ {item.price}</p>
-                    <div className="flex items-center border-1 border-r-0 border-color rounded">
+                    {/* <div className="flex items-center border-1 border-r-0 border-color rounded">
                       <p className="p-2 border-r-1 border-slate-600 border-color text-red-600 "><AiOutlineMinus /></p>
                       <p className="p-2 border-r-1 border-color border-slate-600 text-green-600">0</p>
                       <p className="p-2 border-r-1 border-color border-slate-600 text-green-600"><AiOutlinePlus /></p>
+                    </div> */}
+                    <div>
+                         <Button
+                            bgColor=""
+                            color="white"
+                            size="10"
+                           
+                            customFunc={() => removeItemFromCart(index)}
+                            icon={<MdOutlineCancel />}
+                            // className="text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
+                            />
                     </div>
                   </div>
                 </div>
@@ -59,25 +75,31 @@ const ShoppingCart = () => {
          
           <div className="flex justify-between items-center">
             <p className="text-gray-500 dark:text-gray-200">Sub Total</p>
-            <p className="font-semibold">$890</p>
+          
+            <div>
+              <p className="font-semibold">
+                $ {subTotal}
+              </p>
+            </div>
+
           </div>
           <div className="flex justify-between items-center mt-3">
             <p className="text-gray-500 dark:text-gray-200">HST</p>
-            <p className="font-semibold">$15</p>
+            <p className="font-semibold">$ {hst}</p>
           </div>
           <div className="flex justify-between items-center mt-3">
             <p className="text-gray-500 dark:text-gray-200">Total</p>
-            <p className="font-semibold">$890</p>
+            <p className="font-semibold">$ {total}</p>
           </div>
 
         </div>
-        <div className="mt-5 bg-white text-black">
+        <div className="mt-5 bg-white text-black flex justify-center items-center">
+          {/* empty cart */}
           <Button
-          bgColor=""
+          bgColor="red"
           color="black"
           size="10"
-          borderRadius =""
-          customFunc={() => handleClick('cart')}
+          customFunc={() => clearAndCloseCartAndOpenCheckout()}
           icon={`CHECKOUT`}
           />
         </div>

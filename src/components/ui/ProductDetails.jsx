@@ -7,13 +7,15 @@ import { useStateContext } from "../../contexts/ContextProvider";
 
 
 
-const ProductDetails = () => {
+const ProductDetails = ({ProdCategory, itemId}) => {
   const catList = ["electronics","jewelery","men's clothing","women's clothing"];
 
 const { addProductToCart } = useStateContext();
 const {cartItems, setCartItems} = useStateContext();
 
-console.log(cartItems)
+// console.log(cartItems)
+console.log(ProdCategory)
+console.log(itemId)
 
 
 
@@ -25,15 +27,15 @@ console.log(cartItems)
  useEffect(() => {
   const fetchData = async () => {
     try {
-      const data = await productsCategory(catList[0]);
+      const data = await productsCategory(ProdCategory);
 
       // Use find to get the first item with id equal to 9
-      const productWithId9 = data.find(item => parseInt(item.id) === 9);
+      const productWithId9 = data.find(item => parseInt(item.id) === parseInt(itemId));
 
       if (productWithId9) {
         setsingleProductDetails(productWithId9);
       } else {
-        console.log("Product with id 9 not found in the category");
+        console.log(`Product with id ${itemId} not found in the category`);
       }
     } catch (error) {
       console.log(error);
@@ -97,7 +99,7 @@ console.log(cartItems)
                     <h1 className="mb-2 bg-slate-950 rounded-lg w-60 font-bold"> Product Description</h1>
                     <p>{singleProductDetails?.description && (singleProductDetails.description.split(";").map((item,index)=>(
                         <ul key={index}>
-                            <li>-  {`  ${item}`}</li>
+                            <li>-  {`${item}`}</li>
                         </ul>
                     )))}</p>
                 </div>
@@ -118,19 +120,19 @@ console.log(cartItems)
                     ))}
                     </div>
                 </div>
-                <div className="mb-10 ">
+                <div className="mb-10 w-60 flex justify-center rounded-lg">
                     {/* <button onClick={()=>setCartItems(singleProductDetails) } className="bg-white text-black rounded-md w-40">ADD TO CART</button> */}
                     <Button
                         bgColor="white"
                         color="black"
                         size="10"
-                        borderRadius =""
+                        
                         //   onclick of the button, a handleclick call back function is called, this function sets the value of cart to TRUE (isClicked.cart=true) and if this value is true the cart component will be rendered below
                         // onClick THIS function should take the data and append it to the CART DATA ARRAY
                         customFunc={() =>addProductToCart(singleProductDetails)}
                         // customFunc={() => {}}
                         icon={`ADD TO CART`}
-                        className="bg-white text-black rounded-md w-40"
+                        className="bg-white text-black rounded-xl w-40 ml-10"
                         />
                 </div>
             </div>

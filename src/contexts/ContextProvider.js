@@ -6,33 +6,60 @@ const StateContext = createContext();
 
 const initialState = {
     cart: false,
+    
+}
+const initialCheckout = {
+    checkout: false,
+    
 }
 
 export const ContextProvider = ({children}) => {
   // Shopping Cartr Context
-    const [cartItems, setCartItems] = useState([]);
+    // const [cartItems, setCartItems] = useState([]);
+    const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+    const [cartItems, setCartItems] = useState(storedCart);
     //setting initial state value for isClicked to intitialState defined in the initial state object above
     const [isClicked,setIsClicked] = useState((initialState));
 
-     const handleClick = (clicked) => {
-        setIsClicked ({ ...initialState, [clicked]: true});
+    // Checkout Context
+
+    const [isCheckedOut,setisCheckedOut] = useState((initialCheckout));
+    const handleCheckOut = (clicked) => {
+        setisCheckedOut ({ ...initialState, [clicked]: true});
     };
 
+    
+    // cart context
+    const handleClick = (clicked) => {
+        setIsClicked ({ ...initialCheckout, [clicked]: true});
+    };
+
+    
 
     // Fetch products once when clicked on the details page and append to the car data 
     const addProductToCart = (clickedData) => {
         setCartItems([...cartItems, clickedData]);
     }
 
-    // clear cart after checkout use this function in the checkout button and component
-    const afterCheckout = () => {
-        setCartItems([]);
-    }
+      // Save the cart to localStorage whenever it changes
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+    }, [cartItems]);
 
-    // clear carts and set isclicked to false after checkout
-    const clearCartAndCloseCartAndOpenCheckout = () => {
+    //  remove cart items with index
+    const removeItemFromCart = (index) => {
+        const updatedCart = [...cartItems];
+        updatedCart.splice(index, 1);
+        setCartItems(updatedCart);
+  };
+
+
+
+    // clear carts and set isclicked to false after checkout to remove the cart
+    const clearAndCloseCartAndOpenCheckout = () => {
         setIsClicked({ ...initialState, cart: false });
         setCartItems([]);
+        // setCheckout(true); or Navigate to checkout page
     }
   
 
@@ -45,7 +72,8 @@ export const ContextProvider = ({children}) => {
                 isClicked,setIsClicked,
                 handleClick,cartItems,setCartItems,
                 addProductToCart,
-                afterCheckout,}}
+                removeItemFromCart,
+                clearAndCloseCartAndOpenCheckout,}}
                 >
             {children}
         </StateContext.Provider>)

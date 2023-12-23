@@ -3,16 +3,19 @@ import './App.css';
 // import { unsplashApi } from './api/unspalsh';
 // import { images } from './api/unspalsh';
 import { imagesList } from './api/unspalsh';
-import { useEffect } from 'react';
-import { Routes, Route, BrowserRouter} from 'react-router-dom';
-import { Checkout, Home, ProductDetails, ProductList, ShoppingCart } from './components/ui';
+import { useEffect, useState } from 'react';
+import { Routes, Route, BrowserRouter, useParams} from 'react-router-dom';
+import { Checkout, Home, ProductCategoryWrapper, ProductDetails, ProductList, ShoppingCart } from './components/ui';
 import { Footer, Header, NavBar } from './components/shared';
 import ProductCategory from './components/ui/ProductCategory';
+import { productsCategory } from './api/products';
+import ProductDetailsWrapper from './components/ui/ProductDetailsWrapper';
 
 
 
 
 const App =  () => {
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,8 +42,11 @@ const App =  () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/Home" element={<Home />} />
-              <Route path="/ProductCategory" element={<ProductCategory />} />
-              <Route path="/ProductDetails" element={<ProductDetails />} />
+              {/* <Route path="/ProductCategory" element={<ProductCategory />} /> */}
+              <Route path="/ProductCategory/:CategoryName" element={<ProductCategoryWrapper />} />
+
+              {/* <Route path="/ProductDetails" element={<ProductDetails />} /> */}
+              <Route path="/ProductDetails/:ProductCategory/:id" element={<ProductDetailsWrapper />} />
               <Route path="/ProductList" element={<ProductList />} />
               {/* <Route path="/ShoppingCart" element={<ShoppingCart />} /> */}
               <Route path="/Checkout" element={<Checkout />} />

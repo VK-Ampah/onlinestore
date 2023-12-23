@@ -1,10 +1,10 @@
 
-const Button = ({ bgColor, color, size, icon, borderRadius,customFunc }) => {
+const Button = ({ bgColor, color, size, icon,customFunc }) => {
   return (
     <button
       type="button"
-      style= {{backgroundColor: bgColor,color,borderRadius}}
-      className= {`text-${size} p-3 hover:drop-shadow-xl`}
+      style= {{backgroundColor: bgColor,color: color}}
+      className= {`text-${size} p-3 hover:drop-shadow-xl rounded-lg`}
       onClick={customFunc ? customFunc : () => {}}
     >
       {icon}

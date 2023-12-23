@@ -19,7 +19,7 @@ const ProductCategory = ({prodCategory}) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await productsCategory(cat[0]);// make this a prop prodCategory
+        const data = await productsCategory(prodCategory);// make this a prop prodCategory
         setProductCategory(data);
       } catch (error) {
         console.log(error);
@@ -36,7 +36,7 @@ const ProductCategory = ({prodCategory}) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await productsCategory('jewelery');// make this a prop prodCategory
+        const data = await productsCategory(prodCategory);// make this a prop prodCategory
         setProductCategory(data);
       } catch (error) {
         console.log(error);
@@ -94,8 +94,8 @@ const ProductCategory = ({prodCategory}) => {
         </div>
 
         <div className="grid grid-cols-3 gap-4">
-            {productCategory.map((item,index)=>(
-                <Link to="/ProductDetails">
+            {productCategory?.map((item,index)=>(
+                <Link to={`/ProductDetails/${item.category}/${item.id}`}>
                     <div className="flex flex-col">
                         <div key={index} className= "flex flex-col justify-center m-4 rounded-md bg-white text-black">
                             <div key={index}  className= "flex flex-col justify-center items-center m-2">

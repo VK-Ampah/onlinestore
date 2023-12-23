@@ -13,7 +13,7 @@ const Header = () => {
           bgColor=""
           color="white"
           size="10"
-          borderRadius =""
+          
           //   onclick of the button, a handleclick call back function is called, this function sets the value of cart to TRUE (isClicked.cart=true) and if this value is true the cart component will be rendered below
           // onClick={()=>handleClick('cart')}
           customFunc={() => handleClick('cart')}
