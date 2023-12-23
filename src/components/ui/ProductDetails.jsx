@@ -7,6 +7,7 @@ import { useStateContext } from "../../contexts/ContextProvider";
 
 
 
+
 const ProductDetails = () => {
   const catList = ["electronics","jewelery","men's clothing","women's clothing"];
 

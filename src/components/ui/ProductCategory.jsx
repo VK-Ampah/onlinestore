@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 
 
+
 const ProductCategory = ({prodCategory}) => {
 
   const [productCategory, setProductCategory] = useState([]);
