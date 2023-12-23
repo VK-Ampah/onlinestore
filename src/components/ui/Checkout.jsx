@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
-import "./index.css"
-function Checkout() {   
-    const Checkout = () => {
-        return( 
-            <div>
-                Hello
-            </div>
-        )
-    }
-}
+const Checkout = () => {
+    return (
+      <div>
+        This is Checkout test
+      </div>
+    )
+  }
+  
+  export default Checkout
+  
