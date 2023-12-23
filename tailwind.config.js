@@ -10,6 +10,11 @@ module.exports = {
             fontFamily: {
         inter: ['Inter', 'sans-serif'],
 
+      },
+      backgroundImage: {
+        'cloth': "url('https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=600')",
+        'image2': "url('https://images.pexels.com/photos/102129/pexels-photo-102129.jpeg?auto=compress&cs=tinysrgb&w=600')",
+        'image3': "url('https://images.pexels.com/photos/1020370/pexels-photo-1020370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
       }
     },
   },

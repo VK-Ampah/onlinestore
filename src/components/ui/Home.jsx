@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { products } from "../../api/products";
 import { imagesList } from "../../api/unspalsh";
 import { Link } from "react-router-dom";
+import { DisplayImages, TopDiscount } from "../shared";
+// import {TopD}
 
 
 const Home = () => {
@@ -47,38 +49,12 @@ const uniqueCategories = Array.from(new Set(productList.map(item => item.categor
 
 
   return (
-    <div className="flex flex-col w-full">
-        <div className=" text-white flex flex-row w-full justify-between m-2 bg-red-600">
-            <div className="flex flex-col gap-4 p-4">
-                <h2 className="m-2 text-4xl font-extrabold">UP TO 70% OFF</h2>
-                <p  className="m-2 font-bold">*Free Delivery from December 23*</p>
-                <div className="flex justify-center text-center">
-                    <button className="bg-black rounded-md w-40">SHOP NOW</button>
-                </div>
-            </div>
-            <div className="flex flex-col gap-10">
-                <h1 className="text-3xl font-extrabold">TRY THE GIFT BEST GIFT SHOP</h1>
-                <h4 className="text-3xl font-semibold"> Browse our Clothes </h4>
-            </div>
-            <div className="p-2">
-                       {UnspalshImages.length > 1 && UnspalshImages[4].urls ? (
-                   
-                        <div className="flex justify-center items-center p-2">
-                        {UnspalshImages[1].urls.full && (
-                            <img
-                            src={UnspalshImages[4].urls.thumb || UnspalshImages[1].urls.full}
-                            alt={UnspalshImages[4].alt_description || ''}
-                            // width="200px"
-                            // height="200px"
-                            className="rounded-full"
-                            />
-                        )}
-                        </div>
-                    ) : null}
-            </div>
+    <div className="flex flex-col w-full">    
 
- 
+        <div className="">
+            <TopDiscount/>
         </div>
+       
         <div className="grid grid-cols-2 gap-4">
            
                 {/* <Navigate></Navigate> */}

@@ -1,3 +1,8 @@
+// import { PaymentIcon } from 'react-native-payment-icons'
+import { Mastercard, Visa, Paypal, Alipay, Amex } from 'react-payment-logos/dist/flat';
+
+
+
 export const reviewsArray = [
   {
     name: 'John Doe',
@@ -17,38 +22,70 @@ export const reviewsArray = [
   },
 ];
 
+      
+     
+      
 
 // Payment Options
 export const paymentOptions = [
   {
-    name: 'Online Payment',
-    icon: 'online-payment-icon.png',
+    name: 'MasterCard',
+    icon: <Mastercard />,
   },
   {
     name: 'Paypal',
-    icon: 'assets/paypal-svgrepo-com.svg',
+    icon: <Paypal />,
   },
   {
     name: 'Visa',
-    icon: 'assets/visa-svgrepo-com.svg',
+    icon:  <Visa />,
+  },
+    {
+    name: 'Alipay',
+    icon:  <Alipay />,
+  },
+    {
+    name: 'Amex',
+    icon:  <Amex />,
   },
 ];
 
 // Shipping Options
+
+          
+          
+
+
 export const shippingOptions = [
   {
     name: 'WorldWide Delivery',
-    icon: 'assets/flight-international-svgrepo-com.svg',
+    icon: "",
   },
   {
     name: 'Express Delivery',
-    icon: 'assets/24-hours-delivery-svgrepo-com.svg',
+    icon: "",
   },
   {
     name: 'DoorStep delivery',
-    icon: 'assets/logistics-delivery-express-svgrepo-com.svg',
+    icon:"",
   },
 ];
+
+
+// export const shippingOptions = [
+//   {
+//     name: 'WorldWide Delivery',
+//     icon:  <Icon name="home" />,
+//   },
+//   {
+//     name: 'Express Delivery',
+//     icon: <Icon name="file" height="40" width="40" />,
+//   },
+//   {
+//     name: 'DoorStep delivery',
+//     icon: <Icon name="smile" color="red" />,
+//   },
+// ];
 // sizes
 export const sizesData = [
   { id: 1, name: 'S' },
@@ -67,23 +104,13 @@ export const colorsData = [
   { id: 5, name: 'Purple', code: '#800080' }
 ];
 
-export const cartData = [
-  {
-    image:"",
-    name: 'butterscotch ice-cream',
-    category: 'Milk product',
-    price: '$250',
-  },
-  {
-    image:"",
-    name: 'Supreme fresh tomato',
-    category: 'Vegetable Item',
-    price: '$450',
-  },
-  {
-    image:"",
-    name: 'Red color candy',
-    category: 'Food Item',
-    price: '$190',
-  },
+
+
+const navData = [
+  { name: 'Home', route: '/' },
+  { name: "Men's Clothing", route: '/ProductCategory/men\'s clothing' },
+  { name: 'Jewelry', route: '/ProductCategory/jewelry' },
+  { name: 'Electronics', route: '/ProductCategory/electronics' },
+  { name: 'Women\'s Clothing', route: '/ProductCategory/womens clothing' },
+  { name: 'Nike Shoes', route: '/ProductCategory/nike shoes' },
 ];

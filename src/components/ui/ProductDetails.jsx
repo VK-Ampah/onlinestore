@@ -4,18 +4,21 @@ import { colorsData, paymentOptions, reviewsArray, shippingOptions, sizesData } 
 import { imagesList } from "../../api/unspalsh";
 import { Button } from "../shared";
 import { useStateContext } from "../../contexts/ContextProvider";
+import { Mastercard, Visa, Paypal } from 'react-payment-logos/dist/flat';
 
 
 
 const ProductDetails = ({ProdCategory, itemId}) => {
-  const catList = ["electronics","jewelery","men's clothing","women's clothing"];
+    const catList = ["electronics","jewelery","men's clothing","women's clothing"];
 
-const { addProductToCart } = useStateContext();
-const {cartItems, setCartItems} = useStateContext();
+    const [bgColor, setBgColour] = useState('');
 
-// console.log(cartItems)
-console.log(ProdCategory)
-console.log(itemId)
+    const { addProductToCart } = useStateContext();
+    const {cartItems, setCartItems} = useStateContext();
+
+    // console.log(cartItems)
+    console.log(ProdCategory)
+    console.log(itemId)
 
 
 
@@ -85,7 +88,7 @@ console.log(itemId)
 
                 </div>
                
-                <div className= "flex flex-col justify-center items-center m-2  bg-slate-300 p-4">
+                <div className= "flex flex-col justify-center items-center m-2  bg-slate-300 p-4" style={{backgroundColor:bgColor}}>
                     <figure className="mb-4 object-cover bg-slate-300 inline-block h-full w-80">
                         <img 
                             src={singleProductDetails.image} alt={singleProductDetails.title}
@@ -150,9 +153,9 @@ console.log(itemId)
                             {paymentOptions.map((item,index)=>(
                                 <div key={index} className="m-2 border-2 p-2">
                                     <div className="flex justify-center items-start"> 
-                                        <img className="flex w-12 h-12 rounded-lg bg-white" src={item.icon} alt={""}/>
+                                        {item.icon}
                                     </div>
-                                    <p className="mt-1 mr-2 text-sm text-start">{item.name}</p>
+                                    {/* <p className="mt-1 mr-2 text-sm text-start">{item.name}</p> */}
                                 </div>
                             ))}
                         </div>
@@ -163,7 +166,7 @@ console.log(itemId)
                         <div><h5>Sizes:</h5></div>
                         <div className="flex flex-row">
                             {sizesData.map((item,index)=>(
-                                    <div className="m-2 border-2 p-2">
+                                    <div className="m-2 border-2 p-2 w-15">
                                         <div className="flex flex-row justify-center items-center"> 
                                             <p className="mt-1 mr-2 text-sm text-center">{item.name}</p>
                                         </div>
@@ -177,10 +180,34 @@ console.log(itemId)
                         <div><h5>Available Colours:</h5></div>
                         <div className="flex flex-row">
                             {colorsData.map((item,index)=>(
-                                    <div key={index} className="m-2 border-2 p-2" style={{backgroundColor:`${item.code}`}}>
-                                        <div className="flex flex-row justify-center items-center"> 
-                                            <p className="mt-1 mr-2 text-sm text-center">{item.name}</p>
-                                        </div>
+
+                                // insert a buttons
+                          
+
+                                    <div key={index} className="flex m-2 border-2 w-12  justify-center items-center rounded-xl h-12">
+
+                                        <button 
+                                                type="button" 
+                                                onClick={() => setBgColour(`${item.code}`)}
+                                                style={{backgroundColor:`${item.code}`}}
+                                                className="text-2xl p-4 hover:drop-shadow-xl w-full h-full rounded-xl"
+                                                >
+                                                    
+                                        </button>
+
+
+                                        {/* <Button
+                                        bgColor={`${item.code}` }
+                                        color="black"
+                                        size="10"
+                                        
+                                        //   onclick of the button, a handleclick call back function is called, this function sets the value of cart to TRUE (isClicked.cart=true) and if this value is true the cart component will be rendered below
+                                        // onClick THIS function should take the data and append it to the CART DATA ARRAY
+                                        customFunc={() =>setBgColour(`${item.code}`)}
+                                        // customFunc={() => {}}
+                                        icon={``}
+                                        className="bg-white text-black rounded-xl w-40 ml-10"
+                                        /> */}
                                     </div>
                                 ))}
                         </div>
@@ -195,13 +222,12 @@ console.log(itemId)
                             {shippingOptions.map((item,index)=>(
                                 <div key={index} className="m-2 border-2 p-2">
                                     <div className="flex justify-center items-start"> 
-                                        <img className="flex w-12 h-12 rounded-lg bg-white" src={item.icon} alt={""}/>
+                                       {item.icon} 
                                     </div>
                                     <p className="mt-1 mr-2 text-sm text-start">{item.name}</p>
                                 </div>
                             ))}
                         </div>
-
                     </div>
                 </div>
             </div>

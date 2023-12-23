@@ -6,6 +6,7 @@ import { useStateContext } from '../../contexts/ContextProvider';
 import { cartData } from '../../api/data';
 
 import { Button } from '../shared'; 
+import { useState } from 'react';
 
 // implement a function to set Cart to false
 // actually use the setIsclicked function to change the state of the icon to false when clicked
@@ -15,6 +16,8 @@ import { Button } from '../shared';
 
 const ShoppingCart = () => {
 //   const [setIsClicked ] = useStateContext();
+
+
    
 
   const { isClicked, setIsClicked, cartItems,removeItemFromCart, clearAndCloseCartAndOpenCheckout } = useStateContext();
@@ -30,14 +33,24 @@ const ShoppingCart = () => {
       <div className="float-right h-screen  duration-1000 ease-in-out transition-all bg-black md:w-400 p-8">
         <div className="flex justify-between items-center">
           <p className="font-semibold text-lg">Cart</p>
-          <button 
+          {/* <button 
           type="button" 
           onClick={() => setIsClicked({ ...isClicked, cart: false })}
           style={{color: 'rgb(153,171,180)', borderRadius:'50%'}}
           className="text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
           >
             <MdOutlineCancel />
-          </button>
+          </button> */}
+
+          <Button
+                            bgColor=""
+                            color="white"
+                            size="xl"
+                           
+                            customFunc={() => setIsClicked({ ...isClicked, cart: false })}
+                            icon={<MdOutlineCancel />}
+                            // className="text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
+                            />
         </div>
         {cartItems?.map((item, index) => (
           <div key={index}>
@@ -93,10 +106,10 @@ const ShoppingCart = () => {
           </div>
 
         </div>
-        <div className="mt-5 bg-white text-black flex justify-center items-center">
+        <div className="mt-5 text-black flex justify-center items-center">
           {/* empty cart */}
           <Button
-          bgColor="red"
+          bgColor="white"
           color="black"
           size="10"
           customFunc={() => clearAndCloseCartAndOpenCheckout()}
