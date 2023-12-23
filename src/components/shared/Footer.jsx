@@ -4,7 +4,7 @@ import { imagesList } from "../../api/unspalsh";
 const Footer = () => {
   const [UnspalshImages, setUnsplashImages] = useState([]);
   
-  // Fetch mastercard images from unspalsh
+  // Fetch mastercard images from unspalsh (updated)
   useEffect(()=>{
     const fetchData = async()=>{
         try{
