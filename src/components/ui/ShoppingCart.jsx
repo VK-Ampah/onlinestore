@@ -36,7 +36,7 @@ const ShoppingCart = () => {
 
   return (
     <div className="bg-half-transparent w-full fixed top-0 right-0 z-50">
-      <div className="float-right h-screen  duration-1000 ease-in-out transition-all bg-black md:w-400 p-8">
+      <div className="float-right h-screen  duration-1000 ease-in-out transition-all bg-slate-700 md:w-400 p-8">
         <div className="flex justify-between items-center">
           <p className="font-semibold text-lg">Cart</p>
           {/* <button 
@@ -97,18 +97,18 @@ const ShoppingCart = () => {
           
             <div>
               <p className="font-semibold">
-                $ {subTotal}
+                $ {subTotalFormatted}
               </p>
             </div>
 
           </div>
           <div className="flex justify-between items-center mt-3">
             <p className="text-gray-500 dark:text-gray-200">HST</p>
-            <p className="font-semibold">$ {hst}</p>
+            <p className="font-semibold">$ {hstFormatted}</p>
           </div>
           <div className="flex justify-between items-center mt-3">
             <p className="text-gray-500 dark:text-gray-200">Total</p>
-            <p className="font-semibold">$ {total}</p>
+            <p className="font-semibold">$ {totalFormatted}</p>
           </div>
 
         </div>

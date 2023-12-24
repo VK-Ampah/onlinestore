@@ -1,6 +1,6 @@
 const Checkout = () => {
   return(
-    <div className=" mr-20 p-10 flex justify-center items-center">
+    <div className=" mr-20 p-10 flex justify-center items-center w-full">
         <form className="mt-6">
           <div className="grid grid-cols-12 gap-y-6 gap-x-4">
             <div className="col-span-full">

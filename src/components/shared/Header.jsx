@@ -20,6 +20,11 @@ import {IoSearchOutline} from 'react-icons/io5';
 
 const Header = () => {
      const {isClicked,setIsClicked, handleClick} = useStateContext();
+       const {cartItems,removeItemFromCart, clearAndCloseCartAndOpenCheckout } = useStateContext();
+       const cartCount = cartItems.length;
+       console.log(cartCount)
+       console.log(cartItems)
+
   return (
     <div className="flex flex-col w-full md:w-auto m">
       <div className="flex justify-between m-4">
@@ -75,12 +80,11 @@ const Header = () => {
               customFunc={() => handleClick('cart')}
               icon={<FiShoppingCart/>}
               />
+              <p className="bg-slate-600 rounded-full w-8 h-8 p-2 text-center text-xs">{cartCount}</p>
             {/* here I pass the handle click function to the button onl */}
             {isClicked.cart && <ShoppingCart/>}
         </div>       
       </div>
-      
-
 
       <div className="flex justify-end w-full items-end gap-10 p-2 text-2xl font-bold bg-white"> 
                 <DisplayImages/>
