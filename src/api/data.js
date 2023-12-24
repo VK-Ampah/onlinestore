@@ -97,12 +97,13 @@ export const sizesData = [
 
 // colours
 export const colorsData = [
-  { id: 1, name: 'Red', code: '#FF0000' },
-  { id: 2, name: 'Green', code: '#00FF00' },
-  { id: 3, name: 'Blue', code: '#0000FF' },
-  { id: 4, name: 'Yellow', code: '#FFFF00' },
-  { id: 5, name: 'Purple', code: '#800080' }
+  { id: 1, name: 'Red', code: '#708090' },
+  { id: 2, name: 'Green', code: '#778869' },
+  { id: 3, name: 'Blue', code: '#2F4F4F' },
+  { id: 4, name: 'Yellow', code: '#6A5ACD' },
+  { id: 5, name: 'Purple', code: '#708009' }
 ];
+
 
 
 

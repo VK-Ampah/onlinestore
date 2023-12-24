@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { products, productsCategory } from "../../api/products";
 import { colorsData, paymentOptions, reviewsArray, shippingOptions, sizesData } from "../../api/data";
 import { imagesList } from "../../api/unspalsh";
-import { Button } from "../shared";
+import { Button, TopDiscount } from "../shared";
 import { useStateContext } from "../../contexts/ContextProvider";
 import { Mastercard, Visa, Paypal } from 'react-payment-logos/dist/flat';
 
@@ -71,9 +71,12 @@ const ProductDetails = ({ProdCategory, itemId}) => {
 
 
   return (
-    <div>
+    <div className="flex flex-col">
+        <TopDiscount/>
+
         <div className="grid grid-cols-3 gap-4 mt-10">
             <div className="flex flex-col col-span-2 flex-1 mr-4">
+                
                 <h1 className="text-slate-400 mb-1">{singleProductDetails?.category && (
                     `${singleProductDetails.category.toUpperCase()}`
                     )}

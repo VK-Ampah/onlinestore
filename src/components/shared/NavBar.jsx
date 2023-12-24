@@ -12,7 +12,7 @@ const NavBar = () => {
       <div className=" flex justify-center">
        <div class="mt-2 bg-slate-900 text-md text-slate-300">
          
-            <div className="-mb-px flex space-x-8 px-4 gap-4 justify-center text-lg font-light sm:w-auto" aria-orientation="horizontal" role="tablist">
+            <div className="-mb-px flex space-x-8 px-4 gap-4 justify-center text-lg font-light overflow-auto sm:w-auto" aria-orientation="horizontal" role="tablist">
               <NavLink  to={`/home`}>
                         <li className="flow-root hover:bg-slate-300 hover:text-black rounded-md hover:font-semibold hover:text-2xl p-1">
                           HOME

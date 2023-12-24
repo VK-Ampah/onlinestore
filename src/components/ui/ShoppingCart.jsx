@@ -35,8 +35,8 @@ const ShoppingCart = () => {
   const totalFormatted = total.toFixed(2);
 
   return (
-    <div className="bg-half-transparent w-full fixed top-0 right-0 z-50">
-      <div className="float-right h-screen  duration-1000 ease-in-out transition-all bg-slate-700 md:w-400 p-8">
+    <div className="bg-half-transparent w-full fixed top-0 right-0 z-50 h-screen">
+      <div className="float-right duration-1000 ease-in-out transition-all bg-slate-700 md:w-400 p-8 max-h-screen overflow-y-auto">
         <div className="flex justify-between items-center">
           <p className="font-semibold text-lg">Cart</p>
           {/* <button 
@@ -66,14 +66,16 @@ const ShoppingCart = () => {
                 <div>
                   <p className="font-semibold flex-wrap ">{item.title}</p>
                   <p className="text-slate-500 text-sm font-semibold">{item.category}</p>
-                  <div className="flex gap-4 mt-2 items-center justify-between">
-                    <p className="font-semibold text-lg">$ {item.price}</p>
-                    {/* <div className="flex items-center border-1 border-r-0 border-color rounded">
-                      <p className="p-2 border-r-1 border-slate-600 border-color text-red-600 "><AiOutlineMinus /></p>
-                      <p className="p-2 border-r-1 border-color border-slate-600 text-green-600">0</p>
-                      <p className="p-2 border-r-1 border-color border-slate-600 text-green-600"><AiOutlinePlus /></p>
-                    </div> */}
-                    <div>
+                  <div className="flex gap-4 mt-2 items-center justify-between w-full">
+                    <div className='w-full'>
+                      <p className="font-semibold text-lg">$ {item.price}</p>
+                      {/* <div className="flex items-center border-1 border-r-0 border-color rounded">
+                        <p className="p-2 border-r-1 border-slate-600 border-color text-red-600 "><AiOutlineMinus /></p>
+                        <p className="p-2 border-r-1 border-color border-slate-600 text-green-600">0</p>
+                        <p className="p-2 border-r-1 border-color border-slate-600 text-green-600"><AiOutlinePlus /></p>
+                      </div> */}
+                    </div>
+                    <div className='flex justify-end w-full max-w-full'>
                          <Button
                             bgColor=""
                             color="white"

@@ -36,7 +36,7 @@ const Header = () => {
             </div>
         </div>
         <div className="flex flex-row m-2">
-           <input type="text" placeholder="Search" className="border-1 border-gray-300 rounded-md p-1"/>
+           <input type="text" placeholder="Search" className="border-1 border-gray-300 rounded-md p-1 w-25"/>
            <Button
               bgColor=""
               color="white"
@@ -80,7 +80,8 @@ const Header = () => {
               customFunc={() => handleClick('cart')}
               icon={<FiShoppingCart/>}
               />
-              <p className="bg-slate-600 rounded-full w-8 h-8 p-2 text-center text-xs">{cartCount}</p>
+              <p className="bg-slate-600 rounded-full w-8 h-8 p-2 text-center text-xs">
+                {cartCount}</p>
             {/* here I pass the handle click function to the button onl */}
             {isClicked.cart && <ShoppingCart/>}
         </div>       
