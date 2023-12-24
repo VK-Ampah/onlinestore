@@ -29,20 +29,20 @@ const Home = () => {
 
 
 // Fetch shoe images from unspalsh
-  useEffect(()=>{
-    const fetchData = async()=>{
-        try{
-            const images= await imagesList('shoes-nike');
-            if(!images.length){
-               throw Error;
-            }
-            else{setUnsplashImages(images)}
-        } 
-        catch(error) {console.log(error)}
-    };
-    fetchData()
-  },[])
-  console.log(UnspalshImages)
+//   useEffect(()=>{
+//     const fetchData = async()=>{
+//         try{
+//             const images= await imagesList('shoes-nike');
+//             if(!images.length){
+//                throw Error;
+//             }
+//             else{setUnsplashImages(images)}
+//         } 
+//         catch(error) {console.log(error)}
+//     };
+//     fetchData()
+//   },[])
+//   console.log(UnspalshImages)
 
 // create unique categries from product list
 const uniqueCategories = Array.from(new Set(productList.map(item => item.category)));
@@ -101,7 +101,7 @@ const uniqueCategories = Array.from(new Set(productList.map(item => item.categor
                 );
                 })):null}  
 
-            {UnspalshImages.length > 1 && UnspalshImages[1].urls ? (
+            {/* {UnspalshImages.length > 1 && UnspalshImages[1].urls ? (
                     <div className="m-4">
                         <div className="flex flex-col justify-center items-center p-2">
                             {UnspalshImages[1].urls.full && (
@@ -123,7 +123,7 @@ const uniqueCategories = Array.from(new Set(productList.map(item => item.categor
 
 
                     </div>
-                    ) : null}
+                    ) : null} */}
         </div>
 
     </div>

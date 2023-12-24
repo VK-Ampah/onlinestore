@@ -18,19 +18,19 @@ const ProductCategory = ({prodCategory}) => {
   const [UnspalshImages, setUnsplashImages] = useState([]);
 //   const [unsplashSportImages, setUnspalshSportImages] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await productsCategory(prodCategory);// make this a prop prodCategory
-        setProductCategory(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const data = await productsCategory(prodCategory);// make this a prop prodCategory
+//         setProductCategory(data);
+//       } catch (error) {
+//         console.log(error);
+//       }
+//     };
 
-    fetchData();
-  }, []);
- console.log(productCategory)
+//     fetchData();
+//   }, []);
+//  console.log(productCategory)
 
 
 
@@ -46,7 +46,7 @@ const ProductCategory = ({prodCategory}) => {
     };
 
     fetchData();
-  }, []);
+  }, [prodCategory]);
  console.log(productCategory)
 
 // Fetch shoe images from unspalsh

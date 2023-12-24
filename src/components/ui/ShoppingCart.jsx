@@ -29,6 +29,11 @@ const ShoppingCart = () => {
   const hst = subTotal * parseFloat(0.15);
   const total = subTotal + hst;
 
+  // Convert each value to 2 decimal places
+  const subTotalFormatted = subTotal.toFixed(2);
+  const hstFormatted = hst.toFixed(2);
+  const totalFormatted = total.toFixed(2);
+
   return (
     <div className="bg-half-transparent w-full fixed top-0 right-0 z-50">
       <div className="float-right h-screen  duration-1000 ease-in-out transition-all bg-black md:w-400 p-8">
