@@ -7,6 +7,7 @@ import { cartData } from '../../api/data';
 
 import { Button } from '../shared'; 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 // implement a function to set Cart to false
 // actually use the setIsclicked function to change the state of the icon to false when clicked
@@ -108,13 +109,15 @@ const ShoppingCart = () => {
         </div>
         <div className="mt-5 text-black flex justify-center items-center">
           {/* empty cart */}
-          <Button
-          bgColor="white"
-          color="black"
-          size="10"
-          customFunc={() => clearAndCloseCartAndOpenCheckout()}
-          icon={`CHECKOUT`}
-          />
+          <Link to="/checkout">
+            <Button
+            bgColor="white"
+            color="black"
+            size="10"
+            customFunc={() => clearAndCloseCartAndOpenCheckout()}
+            icon={`CHECKOUT`}
+            />
+          </Link>
         </div>
       </div>
     </div>
