@@ -22,8 +22,8 @@ const Header = () => {
      const {isClicked,setIsClicked, handleClick} = useStateContext();
        const {cartItems,removeItemFromCart, clearAndCloseCartAndOpenCheckout } = useStateContext();
        const cartCount = cartItems.length;
-       console.log(cartCount)
-       console.log(cartItems)
+      //  console.log(cartCount)
+      //  console.log(cartItems)
 
   return (
     <div className="flex flex-col w-full md:w-auto m">
@@ -31,7 +31,7 @@ const Header = () => {
         <div>
             <div className="lg:flex-wrap lg:flex-1 lg:items-center lg:justify-end gap-2 lg:space-x-6 md:flex-wrap">
                       <a href="#" className="text-sm font-medium text-white-700 hover:text-xl hover:bg-cyan-500 hover:text-black hover:p-2 hover:rounded-md  mr-2">Sign in</a>
-                      <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
+                      <span className="h-6 w-px bg-gray-200" aria-hidden="true"></span>
                       <a href="#" className="text-sm font-medium text-white-700 hover:text-xl hover:bg-cyan-500 hover:text-black hover:p-2 hover:rounded-md">Create account</a>
             </div>
         </div>

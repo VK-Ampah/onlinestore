@@ -5,11 +5,42 @@ import { imagesList } from "../../api/unspalsh";
 import { Button, TopDiscount } from "../shared";
 import { useStateContext } from "../../contexts/ContextProvider";
 import { Mastercard, Visa, Paypal } from 'react-payment-logos/dist/flat';
+import { ToastMaker } from "../shared/";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 const ProductDetails = ({ProdCategory, itemId}) => {
     const catList = ["electronics","jewelery","men's clothing","women's clothing"];
+
+    
+    <ToastContainer
+        position="bottom-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+     />
+
+     const showToast = (e)=>{  toast('Succefully Added Cart', {
+      position: "bottom-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+      addProductToCart(singleProductDetails);
+      e.preventDefault();
+   }
 
     const [bgColor, setBgColour] = useState('');
 
@@ -17,8 +48,8 @@ const ProductDetails = ({ProdCategory, itemId}) => {
     const {cartItems, setCartItems} = useStateContext();
 
     // console.log(cartItems)
-    console.log(ProdCategory)
-    console.log(itemId)
+    // console.log(ProdCategory)
+    // console.log(itemId)
 
 
 
@@ -47,7 +78,7 @@ const ProductDetails = ({ProdCategory, itemId}) => {
 
   fetchData();
 }, []);
- console.log(singleProductDetails)
+//  console.log(singleProductDetails)
 
  // Fetch shoe images from unspalsh
   useEffect(()=>{
@@ -67,7 +98,7 @@ const ProductDetails = ({ProdCategory, itemId}) => {
     };
     fetchData()
   },[])
-  console.log(UnspalshImages)
+//   console.log(UnspalshImages)
 
 
   return (
@@ -103,17 +134,17 @@ const ProductDetails = ({ProdCategory, itemId}) => {
                
                 <div className="mb-4">
                     <h1 className="mb-2 bg-slate-950 rounded-lg w-60 font-bold"> Product Description</h1>
-                    <p>{singleProductDetails?.description && (singleProductDetails.description.split(";").map((item,index)=>(
+                    <div>{singleProductDetails?.description && (singleProductDetails.description.split(";").map((item,index)=>(
                         <ul key={index}>
                             <li>-  {`${item}`}</li>
                         </ul>
-                    )))}</p>
+                    )))}</div>
                 </div>
                 <div className="mb-4 ">
                     <h1 className='font-bold mb-2'>Reviews</h1>
                     <div className="flex flex-row flex-wrap lg:flex-nowrap">
                     {reviewsArray.map((item,index)=>(
-                        <div className="flex flex-row gap-7 mr-2"> 
+                        <div key={index} className="flex flex-row gap-7 mr-2"> 
                             <div>
                                 <img className="rounded-full h-12 w-12 m-2" src={UnspalshImages[index]} alt={""}/>
                             </div>
@@ -132,14 +163,14 @@ const ProductDetails = ({ProdCategory, itemId}) => {
                         bgColor="white"
                         color="black"
                         size="10"
-                        
-                        //   onclick of the button, a handleclick call back function is called, this function sets the value of cart to TRUE (isClicked.cart=true) and if this value is true the cart component will be rendered below
-                        // onClick THIS function should take the data and append it to the CART DATA ARRAY
-                        customFunc={() =>addProductToCart(singleProductDetails)}
-                        // customFunc={() => {}}
+                        customFunc={(e) =>showToast(e)}
                         icon={`ADD TO CART`}
                         className="bg-white text-black rounded-xl w-40 ml-10"
-                        />
+                    />
+                    {/* <ToastMaker 
+                    ToastMaker ="Successfully Added" 
+                    btnMessage="CART" 
+                    customFunc={addProductToCart(singleProductDetails)}/> */}
                 </div>
             </div>
             <div className="grid grid-rows-5 grid-flow-col ml-6">
@@ -169,7 +200,7 @@ const ProductDetails = ({ProdCategory, itemId}) => {
                         <div><h5>Sizes:</h5></div>
                         <div className="flex flex-row">
                             {sizesData.map((item,index)=>(
-                                    <div className="m-2 border-2 p-2 w-15">
+                                    <div key={index} className="m-2 border-2 p-2 w-15">
                                         <div className="flex flex-row justify-center items-center"> 
                                             <p className="mt-1 mr-2 text-sm text-center">{item.name}</p>
                                         </div>
@@ -224,8 +255,8 @@ const ProductDetails = ({ProdCategory, itemId}) => {
                         <div className="flex flex-row justify-center items-center">
                             {shippingOptions.map((item,index)=>(
                                 <div key={index} className="m-2 border-2 p-2">
-                                    <div className="flex justify-center items-start"> 
-                                       {item.icon} 
+                                    <div className="flex justify-center items-start bg-white"> 
+                                       <img src = {item.icon} alt={item.alt} className="w-12 h-12"></img>
                                     </div>
                                     <p className="mt-1 mr-2 text-sm text-start">{item.name}</p>
                                 </div>

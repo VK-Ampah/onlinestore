@@ -17,19 +17,6 @@ import ProductDetailsWrapper from './components/ui/ProductDetailsWrapper';
 const App =  () => {
 
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await imagesList();
-        console.log('This is', data.response);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, [])
-
   return (
     <div className="h-screen w-full m-2">
       {/* wrap our application with the Browser Router to enforce routing */}
@@ -47,7 +34,7 @@ const App =  () => {
 
               {/* <Route path="/ProductDetails" element={<ProductDetails />} /> */}
               <Route path="/ProductDetails/:ProductCategory/:id" element={<ProductDetailsWrapper />} />
-              <Route path="/ProductList" element={<ProductList />} />
+              {/* <Route path="/ProductList" element={<ProductList />} /> */}
               {/* <Route path="/ShoppingCart" element={<ShoppingCart />} /> */}
               <Route path="/Checkout" element={<Checkout />} />
             </Routes>

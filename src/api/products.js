@@ -29,9 +29,9 @@ export const productsCategory = async (prodcategory="") => {
 
         const response = await fetch(url)
         const data = await response.json()
-        console.log(response)
+        // console.log(response)
 
-        console.log(data)
+        // console.log(data)
 
         return data
     }

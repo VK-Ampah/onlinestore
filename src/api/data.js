@@ -3,6 +3,7 @@ import { Mastercard, Visa, Paypal, Alipay, Amex } from 'react-payment-logos/dist
 
 
 
+
 export const reviewsArray = [
   {
     name: 'John Doe',
@@ -59,15 +60,20 @@ export const paymentOptions = [
 export const shippingOptions = [
   {
     name: 'WorldWide Delivery',
-    icon: "",
+    icon: "/assets/flight.svg",
+    alt: "star",
+   
+    
   },
   {
     name: 'Express Delivery',
-    icon: "",
+    icon: "/assets/logistics-delivery-express-svgrepo-com.svg",
+    alt: "delivery",
   },
   {
     name: 'DoorStep delivery',
-    icon:"",
+    icon:"/assets/24-hours-delivery-svgrepo-com.svg",
+    alt: "doorstep",
   },
 ];
 

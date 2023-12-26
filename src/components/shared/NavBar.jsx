@@ -10,7 +10,7 @@ const NavBar = () => {
   return (
     <div className= "flex justify-center w-full jusfity-end items-end gap-10 p-2 text-2xl font-bold border-y-2 md:w-auto md:p-4 md:text-md">  
       <div className=" flex justify-center">
-       <div class="mt-2 bg-slate-900 text-md text-slate-300">
+       <div className="mt-2 bg-slate-900 text-md text-slate-300">
          
             <div className="-mb-px flex space-x-8 px-4 gap-4 justify-center text-lg font-light overflow-auto sm:w-auto" aria-orientation="horizontal" role="tablist">
               <NavLink  to={`/home`}>

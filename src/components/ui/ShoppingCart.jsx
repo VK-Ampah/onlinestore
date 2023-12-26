@@ -122,7 +122,7 @@ const ShoppingCart = () => {
             color="black"
             size="10"
             customFunc={() => clearAndCloseCartAndOpenCheckout()}
-            icon={`CHECKOUT`}
+            icon={`PROCEED TO CHECKOUT`}
             />
           </Link>
         </div>
