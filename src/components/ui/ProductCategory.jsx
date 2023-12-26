@@ -18,22 +18,6 @@ const ProductCategory = ({prodCategory}) => {
   const [UnspalshImages, setUnsplashImages] = useState([]);
 //   const [unsplashSportImages, setUnspalshSportImages] = useState([]);
 
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const data = await productsCategory(prodCategory);// make this a prop prodCategory
-//         setProductCategory(data);
-//       } catch (error) {
-//         console.log(error);
-//       }
-//     };
-
-//     fetchData();
-//   }, []);
-//  console.log(productCategory)
-
-
-
 //   Fetch products once from API
   useEffect(() => {
     const fetchData = async () => {

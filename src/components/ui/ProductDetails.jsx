@@ -28,18 +28,21 @@ const ProductDetails = ({ProdCategory, itemId}) => {
         theme="light"
      />
 
-     const showToast = (e)=>{  toast('Succefully Added Cart', {
-      position: "bottom-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      });
+     const showToast = (e)=>{  
+
+         e.preventDefault();
+
+            toast('Succefully Added Cart', {
+            position: "bottom-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            });
       addProductToCart(singleProductDetails);
-      e.preventDefault();
    }
 
     const [bgColor, setBgColour] = useState('');
@@ -158,7 +161,6 @@ const ProductDetails = ({ProdCategory, itemId}) => {
                     </div>
                 </div>
                 <div className="mb-10 w-60 flex justify-center rounded-lg">
-                    {/* <button onClick={()=>setCartItems(singleProductDetails) } className="bg-white text-black rounded-md w-40">ADD TO CART</button> */}
                     <Button
                         bgColor="white"
                         color="black"
@@ -167,10 +169,8 @@ const ProductDetails = ({ProdCategory, itemId}) => {
                         icon={`ADD TO CART`}
                         className="bg-white text-black rounded-xl w-40 ml-10"
                     />
-                    {/* <ToastMaker 
-                    ToastMaker ="Successfully Added" 
-                    btnMessage="CART" 
-                    customFunc={addProductToCart(singleProductDetails)}/> */}
+                    <ToastContainer/>
+
                 </div>
             </div>
             <div className="grid grid-rows-5 grid-flow-col ml-6">
@@ -189,7 +189,6 @@ const ProductDetails = ({ProdCategory, itemId}) => {
                                     <div className="flex justify-center items-start"> 
                                         {item.icon}
                                     </div>
-                                    {/* <p className="mt-1 mr-2 text-sm text-start">{item.name}</p> */}
                                 </div>
                             ))}
                         </div>

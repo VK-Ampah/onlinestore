@@ -51,7 +51,7 @@ const uniqueCategories = Array.from(new Set(productList.map(item => item.categor
   return (
     <div className="flex flex-col w-full">    
 
-        <div className="">
+        <div data-testid="top-discount" className="">
             <TopDiscount/>
         </div>
        
@@ -72,14 +72,14 @@ const uniqueCategories = Array.from(new Set(productList.map(item => item.categor
                         <div key={index} className="m-4">
                             <div key={index} className="flex flex-col justify-center h-full w-full items-center p-2">
                                     <div className="relative">
-                                        <figure class="mb-4 inline-block h-full max-w-sm">
+                                        <figure data-testid="figElement" class="mb-4 inline-block h-full max-w-sm">
                                             <img
                                             src={categoryItem.image}
                                             alt={categoryItem.category}
                                             className="mb-4 object-cover w-80 h-80 rounded-lg align-middle leading-none shadow-lg"
                                             />
                                             <figcaption
-                                                class="text-center text-xl font-semibold">
+                                                className="text-center text-xl font-semibold" data-testid={categoryItem.category.toUpperCase()}>
                                                     {categoryItem.category.toUpperCase()}
                                             </figcaption>
                                         </figure>
@@ -100,35 +100,13 @@ const uniqueCategories = Array.from(new Set(productList.map(item => item.categor
                      </Link>
                 );
                 })):null}  
-
-            {/* {UnspalshImages.length > 1 && UnspalshImages[1].urls ? (
-                    <div className="m-4">
-                        <div className="flex flex-col justify-center items-center p-2">
-                            {UnspalshImages[1].urls.full && (
-                                <figure class="mb-4 inline-block object-cover">
-                                    <img
-                                    src={UnspalshImages[1].urls.thumb || UnspalshImages[1].urls.full}
-                                    alt={UnspalshImages[1].alt_description || ''}
-                                    className="mb-4 object-cover w-80 h-80 rounded-lg align-middle leading-none shadow-lg"
-                                    />
-                                    <figcaption
-                                        class="text-center text-sm font-semibold">
-                                        NIKE SHOES
-                                    </figcaption>
-                                </figure>
-                            )}
-                            <div><button onClick={()=>{}} className="bg-black text-white rounded-md w-40">SHOP NOW</button></div>
-                        </div>
-                       
-
-
-                    </div>
-                    ) : null} */}
         </div>
-
     </div>
   )
 }
 
 export default Home
+
+
+
 
