@@ -45,10 +45,7 @@ export const paymentOptions = [
     name: 'Alipay',
     icon:  <Alipay />,
   },
-    {
-    name: 'Amex',
-    icon:  <Amex />,
-  },
+
 ];
 
 // Shipping Options
