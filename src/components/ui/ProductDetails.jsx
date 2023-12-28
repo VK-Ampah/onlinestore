@@ -109,13 +109,13 @@ const ProductDetails = ({ProdCategory, itemId}) => {
         <TopDiscount/>
 
         <div className="grid grid-cols-3 gap-4 mt-10">
-            <div className="flex flex-col col-span-2 flex-1 mr-4">
+            <div className="flex flex-col col-span-full lg:col-span-2 flex-1 mr-4">
                 
                 <h1 className="text-slate-400 mb-1">{singleProductDetails?.category && (
                     `${singleProductDetails.category.toUpperCase()}`
                     )}
                 </h1>
-                <div className=" flex text-3xl font-semibold mb-1">{singleProductDetails.title} <span className="ml-2 text-lg font-light">#{singleProductDetails.id}</span></div>
+                <div className="flex text-sm lg:text-3xl font-semibold mb-1">{singleProductDetails.title} <span className="ml-2 text-lg font-light">#{singleProductDetails.id}</span></div>
                 <div className="flex mb-1">
                     <span><img className="w-5 h-5 mr-1" src={`/assets/star-yel.svg`} alt="LoveIcon"/></span> 
                     {/* <span className="mr-1">{singleProductDetails?.rating.rate && (singleProductDetails.rating.rate)}</span>
@@ -125,11 +125,11 @@ const ProductDetails = ({ProdCategory, itemId}) => {
 
                 </div>
                
-                <div className= "flex flex-col justify-center items-center m-2  bg-slate-300 p-4" style={{backgroundColor:bgColor}}>
-                    <figure className="mb-4 object-cover bg-slate-300 inline-block h-full w-80">
+                <div className= "flex flex-col justify-center items-center m-2 p-2" style={{backgroundColor:bgColor}}>
+                    <figure className="mb-4 object-cover inline-block h-64 md:h-full w-64 md:w-80 p-2 bg-white rounded-md" style={{backgroundColor:bgColor}}>
                         <img 
                             src={singleProductDetails.image} alt={singleProductDetails.title}
-                            className="mb-4 object-cover w-full h-80 rounded-lg align-middle leading-none shadow-lg"
+                            className="mb-4 object-cover w-full h-full rounded-lg align-middle leading-none shadow-lg"
                         />
                         <figcaption className="p-2"> {}</figcaption>
                     </figure>
@@ -139,7 +139,7 @@ const ProductDetails = ({ProdCategory, itemId}) => {
                     <h1 className="mb-2 bg-slate-950 rounded-lg w-60 font-bold"> Product Description</h1>
                     <div>{singleProductDetails?.description && (singleProductDetails.description.split(";").map((item,index)=>(
                         <ul key={index}>
-                            <li>-  {`${item}`}</li>
+                            <li className="text-sm lg:text-xl">{`- ${item}`}</li>
                         </ul>
                     )))}</div>
                 </div>
@@ -173,19 +173,19 @@ const ProductDetails = ({ProdCategory, itemId}) => {
 
                 </div>
             </div>
-            <div className="grid grid-rows-5 grid-flow-col ml-6">
-                <div>
-                    <p className="m-1 text-xl font-bold">$ {singleProductDetails.price}</p>
+            <div className="flex flex-col col-span-full lg:col-span-1 lg:grid lg:grid-rows-5 lg:grid-flow-col lg:ml-6">
+                <div className="w-full flex flex-col mb-4 lg:mb-0">
+                    <p className="m-1 text-sm lg:text-xl font-bold">$ {singleProductDetails.price}</p>
                     <p className="rounded-xl"> Discounts 10%</p>
-                    <p className="m-1"> Sales End: December 23, 2023</p>
+                    <p className="lg:m-1"> Sales End: December 23, 2023</p>
                 </div>
-                <div className="flex flex-col">
-                        <div className="mb-4">
+                <div className="flex flex-col ">
+                        <div className="lg:mb-4">
                             <h5 className="mt-1 mr-2 text-sm text-start">Payments Options:</h5>
                         </div>
                         <div className="flex flex-row">
                             {paymentOptions.map((item,index)=>(
-                                <div key={index} className="m-2 border-2 p-2">
+                                <div key={index} className="mr-1 lg:m-2 lg:border-1 lg:p-2">
                                     <div className="flex justify-center items-start"> 
                                         {item.icon}
                                     </div>
@@ -195,13 +195,13 @@ const ProductDetails = ({ProdCategory, itemId}) => {
 
                 </div>
                 <div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col mb-4 lg:mb-0">
                         <div><h5>Sizes:</h5></div>
                         <div className="flex flex-row">
                             {sizesData.map((item,index)=>(
-                                    <div key={index} className="m-2 border-2 p-2 w-15">
+                                    <div key={index} className="m-1 lg:m-2 border-2 lg:border-2 p-1 lg:p-2 w-10 lg:w-15">
                                         <div className="flex flex-row justify-center items-center"> 
-                                            <p className="mt-1 mr-2 text-sm text-center">{item.name}</p>
+                                            <p className="mt-1 mr-2 text-xs lg:text-sm text-center">{item.name}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -213,34 +213,14 @@ const ProductDetails = ({ProdCategory, itemId}) => {
                         <div><h5>Available Colours:</h5></div>
                         <div className="flex flex-row">
                             {colorsData.map((item,index)=>(
-
-                                // insert a buttons
-                          
-
                                     <div key={index} className="flex m-2 border-2 w-12  justify-center items-center rounded-xl h-12">
-
                                         <button 
                                                 type="button" 
                                                 onClick={() => setBgColour(`${item.code}`)}
                                                 style={{backgroundColor:`${item.code}`}}
                                                 className="text-2xl p-4 hover:drop-shadow-xl w-full h-full rounded-xl"
-                                                >
-                                                    
+                                                >                                  
                                         </button>
-
-
-                                        {/* <Button
-                                        bgColor={`${item.code}` }
-                                        color="black"
-                                        size="10"
-                                        
-                                        //   onclick of the button, a handleclick call back function is called, this function sets the value of cart to TRUE (isClicked.cart=true) and if this value is true the cart component will be rendered below
-                                        // onClick THIS function should take the data and append it to the CART DATA ARRAY
-                                        customFunc={() =>setBgColour(`${item.code}`)}
-                                        // customFunc={() => {}}
-                                        icon={``}
-                                        className="bg-white text-black rounded-xl w-40 ml-10"
-                                        /> */}
                                     </div>
                                 ))}
                         </div>
@@ -248,14 +228,14 @@ const ProductDetails = ({ProdCategory, itemId}) => {
                 </div>
                 <div>
                     <div className="flex flex-col">
-                        <div className="mb-4">
-                            <h5 className="mt-1 mr-2 text-sm text-start">Delivery Options:</h5>
+                        <div className="mb-2">
+                            <h5 className="mt-1 lg:mt-0 mr-2 text-sm text-start">Delivery Options:</h5>
                         </div>
-                        <div className="flex flex-row justify-center items-center">
+                        <div className="flex flex-row justify-start items-start lg:items-center">
                             {shippingOptions.map((item,index)=>(
-                                <div key={index} className="m-2 border-2 p-2">
-                                    <div className="flex justify-center items-start bg-white"> 
-                                       <img src = {item.icon} alt={item.alt} className="w-12 h-12"></img>
+                                <div key={index} className="m-1 lg:m-2 border-2 p-2">
+                                    <div className="flex justify-center text-start items-start bg-white"> 
+                                       <img src = {item.icon} alt={item.alt} className=" w-6 h-6 lg:w-12 lg:h-12"></img>
                                     </div>
                                     <p className="mt-1 mr-2 text-sm text-start">{item.name}</p>
                                 </div>

@@ -4,10 +4,10 @@ import NavBar from "./NavBar"
 
 const DisplayImages = () => {
   return (
-    <div className="flex flex-col justify-center h-80 w-full items-center bg-cloth">
+    <div className="flex flex-col justify-center xs:h-64 md:h-80 w-full items-center bg-cloth">
         <div className="text-center flex flex-col" >
             <div className=" flex justify-center text-center mb-10 bg-slate-900 h-20 p-4">
-                <h1 className="text-4xl font-semibold">Welcome to SPORTS DAMON</h1>
+                <h1 className="xs:text-sm md:text-4xl font-semibold">Welcome to SPORTS DAMON</h1>
             </div>
             <p> 
                   <Button
