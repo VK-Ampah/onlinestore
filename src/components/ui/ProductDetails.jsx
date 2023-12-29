@@ -136,7 +136,7 @@ const ProductDetails = ({ProdCategory, itemId}) => {
                 </div>                    
                
                 <div className="mb-4">
-                    <h1 className="mb-2 bg-slate-950 rounded-lg w-60 font-bold"> Product Description</h1>
+                    <h1 className="mb-2 rounded-lg w-60 font-bold"> Product Description</h1>
                     <div>{singleProductDetails?.description && (singleProductDetails.description.split(";").map((item,index)=>(
                         <ul key={index}>
                             <li className="text-sm lg:text-xl">{`- ${item}`}</li>

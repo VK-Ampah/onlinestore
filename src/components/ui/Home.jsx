@@ -71,7 +71,7 @@ const uniqueCategories = Array.from(new Set(productList.map(item => item.categor
                      <Link to={`/ProductCategory/${category}`}>
                         <div key={index} className="flex justify-center items-center m-4 w-full xs:h-56 md:h-96 p-2">
                             <div key={index} className="flex flex-col justify-center md:w-full xs:h-48 md:h-full items-center">
-                                    <div className="relative bg-cyan-700 mt-2 md-1">
+                                    <div className="relative mt-2 md-1">
                                         <figure data-testid="figElement" class="mb-4 inline-block xs:max-w-full md:w-full md:h-full p-2">
                                             <img
                                             src={categoryItem.image}
@@ -93,7 +93,7 @@ const uniqueCategories = Array.from(new Set(productList.map(item => item.categor
 
                                     </div>
 
-                                    <div><button onClick={()=>{}} className="bg-black text-white rounded-md w-40">SHOP NOW</button></div>
+                                    <div><button onClick={()=>{}} className="bg-black text-white rounded-md w-25 p-1 md:w-40">SHOP NOW</button></div>
                             </div>
                             
                         </div>
