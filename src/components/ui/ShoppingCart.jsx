@@ -58,6 +58,46 @@ const ShoppingCart = () => {
                             // className="text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
                             />
         </div>
+        {cartItems?.length > 0 ? (
+         cartItems.map((item, index) => (
+          <div key={index}>
+            <div>
+              <div className="flex items-center leading-8 gap-5 border-b-1 border-color p-4">
+                <img className="rounded-lg h-20 w-24" src={item.image} alt="" />
+                <div>
+                  <p className="font-semibold flex-wrap ">{item.title}</p>
+                  <p className="text-slate-500 text-sm font-semibold">{item.category}</p>
+                  <div className="flex gap-4 mt-2 items-center justify-between w-full">
+                    <div className='w-full'>
+                      <p className="font-semibold text-lg">$ {item.price}</p>
+                      {/* <div className="flex items-center border-1 border-r-0 border-color rounded">
+                        <p className="p-2 border-r-1 border-slate-600 border-color text-red-600 "><AiOutlineMinus /></p>
+                        <p className="p-2 border-r-1 border-color border-slate-600 text-green-600">0</p>
+                        <p className="p-2 border-r-1 border-color border-slate-600 text-green-600"><AiOutlinePlus /></p>
+                      </div> */}
+                    </div>
+                    <div className='flex justify-end w-full max-w-full'>
+                         <Button
+                            bgColor=""
+                            color="white"
+                            size="10"
+                           
+                            customFunc={() => removeItemFromCart(index)}
+                            icon={<MdOutlineCancel />}
+                            // className="text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
+                            />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+        ) 
+        : (
+          <p>Cart is empty</p>
+        )}
+
         {cartItems?.map((item, index) => (
           <div key={index}>
             <div>
