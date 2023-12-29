@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Button from "./Button"
 import NavBar from "./NavBar"
 
@@ -10,6 +11,7 @@ const DisplayImages = () => {
                 <h1 className="xs:text-sm md:text-4xl font-semibold">Welcome to SPORTS DAMON</h1>
             </div>
             <p> 
+                <Link to="/">
                   <Button
                         bgColor="silver"
                         color="black"
@@ -19,8 +21,9 @@ const DisplayImages = () => {
                         // onClick THIS function should take the data and append it to the CART DATA ARRAY
                         customFunc={""}
                         // customFunc={() => {}}
-                        icon={`SHOP NOW`}
+                        icon={`Home`}
                         />
+                </Link>
             </p>
           
         </div>

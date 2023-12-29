@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const TopDiscount = () => {
   return (
     <div className="bg-white w-full">
@@ -6,7 +8,9 @@ const TopDiscount = () => {
           <h2 className="xs:m-0 md:m-2 xs:text-sm md:text-4xl font-extrabold text-red-500">Up to 70% OFF</h2>
           <p className="xs:m-1 md:m-2 font-bold">*Free Delivery from December 23*</p>
           <div className="flex justify-center text-center">
-            <button className="bg-black rounded-md w-40">SHOP NOW</button>
+            <Link to="/">
+              <button className="bg-white text-black rounded-md w-40">SHOP NOW</button>
+            </Link>
           </div>
         </div>
         <div className="md:flex flex-col xs:gap-1 xs:text-sm md:gap-4 bg-image3 xs:p-1 xs:m-1 md:p-4 md:m-4 xs:hidden md:w-full">
